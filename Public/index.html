@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app='todoApp'>
+<head>
+<title>connect with moongose </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src='./components/angular/angular.js'></script>
+<link rel='stylesheet' href='./components/bootstrap/dist/css/bootstrap.min.css'/>
+<script src='./controller.js'></script>
+</head>
+<body ng-controller='todoController'> 
+<div class='container'>
+	<div class="row" style="text-align: center;height: 100px;background-color: #f5e79e"><h1>Using Database</h1></div>
+	<div class='row' style='padding-top:20px'>
+		<h2 class='col-xs-2' style='margin-top: 10px; color: hotpink;'>Todo:</h2>
+		<input type="text" ng-model='enterData' style="height: 50px;font-size: 20px"
+			   placeholder='please note what to your think in maind to implement in feature' class='col-xs-8'/>
+		<button class='col-xs-2' type='submit' style="height: 50px;font-size: 20px" ng-click='onAdd()'>add</button>
+	</div>
+	<div class='panel-container row' style='padding-top:20px'>
+		<div ng-repeat='item in displayData' style='height:40px; border-bottom:solid'>
+			<div class='pull-left' style='padding-top:5px'>
+				<span style="font-size: 20px">{{item.text}}</span>
+			</div>
+			<div class='pull-right col-xs-1' style='padding-top:5px'>
+				<button type='submit' ng-click='onDelete(item._id)'>remove</button>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
